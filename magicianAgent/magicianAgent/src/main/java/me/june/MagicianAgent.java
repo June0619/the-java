@@ -17,7 +17,7 @@ public class MagicianAgent {
          new AgentBuilder.Default()
                  .type(ElementMatchers.any())
                  .transform((builder, typeDescription, classLoader, javaModule) -> builder.method(named("pullOut"))
-                         .intercept(FixedValue.value("rabbitR")));
+                         .intercept(FixedValue.value("Rabbit!"))).installOn(inst);
     }
 
 }
