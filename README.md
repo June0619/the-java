@@ -85,4 +85,15 @@
     - 클래스패스: `-classpath` 옵션 혹은 `java.class.path` 환경 변수의 값에 해당하는 위치
     
 ### 바이트 코드 조작 
-1. 
+- 자바의 바이트 코드를 직접 조작할 수 있다.
+  - ASM
+  - Javassist
+  - ByteBuddy
+  - CGlib
+- 바이트 코드를 직접 조작함으로써 자바 소스를 건드리지 않고 코드를 변경 가능
+  - 프록시
+  - API 호출 제한
+  - 스칼라 언어 컴파일러 
+  - 기타 등등
+- 스프링이 컴포넌트 스캔을 할 때 asm 을 사용한다. (`ClassPathScanningCandidateComponentProvider`)
+
