@@ -1,5 +1,6 @@
 package me.june;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
@@ -62,5 +63,17 @@ public class App {
         Arrays.stream(MyBook.class.getInterfaces()).forEach(System.out::println);
         System.out.println("\n============================================\n");
 
+        //6. 애노테이션
+        //getDeclaredAnnotations 를 사용하면 상속은 제외하고 실제 사용되고 있는 애노테이션만 가져온다.
+        Arrays.stream(MyBook.class.getAnnotations()).forEach(System.out::println);
+        //애노테이션의 타입을 가져와서 값을 얻을 수도 있다.
+        Arrays.stream(bookClass.getAnnotations()).forEach(f -> {
+            if(f instanceof MyAnnotation) {
+                MyAnnotation myAnnotation = (MyAnnotation) f;
+                System.out.println(myAnnotation.value());
+                System.out.println(myAnnotation.number());
+            }
+        });
+        System.out.println("\n============================================\n");
     }
 }

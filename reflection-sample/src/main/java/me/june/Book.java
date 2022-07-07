@@ -1,5 +1,10 @@
 package me.june;
 
+
+//애노테이션의 value 필드 값 하나만 줄 때 어떤 필드의 값인지 명시하지 않아도 된다.
+@MyAnnotation("Annotation Value")
+//여러개를 쓸 때엔 이름을 줘야한다.
+//@MyAnnotation(value = "Annotation Value", number = 100)
 public class Book {
 
     private String title = "JAVA book";
