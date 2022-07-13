@@ -14,6 +14,9 @@ import java.lang.reflect.Proxy;
 
 import static net.bytebuddy.matcher.ElementMatchers.named;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class BookServiceTest {
 
@@ -86,5 +89,19 @@ class BookServiceTest {
         Book book = new Book("spring");
         bookService.rent(book);
         bookService.returnBook(book);
+    }
+
+    //mocking 예제
+    @Test
+    public void mockingTest() {
+        BookRepository bookRepositoryMock = mock(BookRepository.class);
+        Book hibernateBook = new Book("Hibernate");
+
+        when(bookRepositoryMock.save(any())).thenReturn(hibernateBook);
+
+        DefaultBookService defaultBookService = new DefaultBookService(bookRepositoryMock);
+
+        Book book = new Book("spring");
+        defaultBookService.save(book);
     }
 }
