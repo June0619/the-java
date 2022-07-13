@@ -5,7 +5,7 @@ public class DefaultBookService implements BookService {
 
     @Override
     public void rent(Book book) {
-        System.out.println("rented : " + book.getTitle());
+        System.out.println("rent : " + book.getTitle());
     }
 
     @Override
